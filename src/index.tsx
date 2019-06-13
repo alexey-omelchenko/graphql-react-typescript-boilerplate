@@ -5,19 +5,20 @@ import { AppContainer } from 'react-hot-loader'; // eslint-disable-line import/n
 
 import 'index.scss';
 
-const renderComponent = (Component) => {
+const renderComponent = Component => {
   render(
     <AppContainer>
       <Component />
     </AppContainer>,
-    document.getElementById('app'),
+    document.getElementById('app')
   );
 };
 
 renderComponent(App);
 
 // Webpack Hot Module Replacement API
-if (module.hot) { // only ever in dev
+if (module.hot) {
+  // only ever in dev
   module.hot.accept('./app', () => {
     // eslint-disable-next-line global-require
     renderComponent(require('./app').default);

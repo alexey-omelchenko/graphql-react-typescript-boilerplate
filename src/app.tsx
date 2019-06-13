@@ -1,14 +1,27 @@
 import React from 'react';
+import { ApolloProvider, Query } from 'react-apollo';
+import { InMemoryCache } from 'apollo-cache-inmemory';
+import { ApolloClient } from 'apollo-client';
+import link from 'graphql/http-link';
+import { GET_ACTIVITIES } from 'graphql/queries/activities';
+import Table from 'components/table/table';
 
-// if you are integrating redux this is a good place to wrap your app in <Provider store={store}>
-// if you are using react-router this is a good place to set up your router
-// this setup needs to be done in a separate file from index.jsx to enable hot reloads
-
+const client = new ApolloClient({
+  link,
+  cache: new InMemoryCache(),
+});
 
 export const App = () => (
-  <div>
-    Hello
-  </div>
+  <ApolloProvider client={client}>
+    <Query query={GET_ACTIVITIES}>
+      {({ loading, error, data }) => {
+        if (loading) return <p>Loading...</p>;
+        if (error) return <p>Error :(</p>;
+
+        return <Table activities={data.activities} />;
+      }}
+    </Query>
+  </ApolloProvider>
 );
 
 export default App;

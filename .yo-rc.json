@@ -1,6 +1,6 @@
 {
-  "catalyst-frontend": {
-    "name": "forever-ever-never-note",
+  "graphql-react-boilerplate": {
+    "name": "graphql-react-boilerplate",
     "newFolder": true,
     "buildType": "webpack",
     "react": true,

@@ -1,0 +1,28 @@
+stages:
+  - lint
+  - test
+
+lint:
+  stage: lint
+  only:
+    - pushes
+  tags:
+    -  # gitlab runner
+  before_script:
+    - npm install
+  script:
+    - npm run lint
+  artifacts:
+    paths:
+      - node_modules
+
+test:
+  stage: test
+  only:
+    - pushes
+  tags:
+    -  # gitlab runner
+  dependencies:
+    - 'lint'
+  script:
+    - npm run test

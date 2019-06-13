@@ -1,4 +1,4 @@
-# forever-ever-never-note frontend
+# Boilerplace: Graphql, React, Typescript
 
 ## Before you start
 
@@ -32,6 +32,12 @@ whenever you save changes. `control-c` will quit the watch process. It also
 starts a development server at `http://localhost:8080` which auto-reloads
 whenever there are changes.
 
+If you want to start project with mocked data run:
+
+```
+npm run start:mock
+```
+
 ## Project structure & build process features
 
 ```
@@ -46,9 +52,11 @@ whenever there are changes.
 ├── webpack.config.js
 └── src
     ├── index.html
-    ├── index.jsx
+    ├── index.tsx
     ├── index.scss
     ├── components
+    ├── graphql
+    ├── types
     └── base-styles
         ├── _base.scss
         └── _variables.scss
@@ -72,6 +80,16 @@ or into a JS file directly will be compiled.
 [Autoprefixer](https://github.com/postcss/autoprefixer#autoprefixer-) is
 included (so you don't need to write vendor prefixes) in the build process.
 
+#### Typescript compilation
+
+The project is written using Typescript.
+It will be compiled to javascript using `ts-loader`
+
+To automatically generate types based on queries in a project run:
+
+```
+npm run apollo:generate
+```
 
 #### File loader
 
@@ -116,8 +134,7 @@ fixed - use the `npm run stylelint:fix` command for that.
 Running `npm run test` will invoke [Jest](https://facebook.github.io/jest/), or you can
 use the interactive watch mode with `npm run test:watch`. You can also use the
 built-in coverage tool via `npm run test:coverage`. The test runner will look
-for any files in a `__tests__` folder, or any files with a `.spec.js` or
-`.test.js` suffix.
+for any files in a `__tests__` folder, or any files with a `.test.ts` suffix.
 
 ## Deploying
 
@@ -127,15 +144,18 @@ To generate the compiled static files, from this directory run:
 npm run build
 ```
 
-Note that by default these files are __not__ kept in version control (to avoid
+Note that by default these files are **not** kept in version control (to avoid
 conflicts), so your project deployment process should include this build
 process.
 
-## Extending the build process
+## Storybook
 
-If you want to alter the build process you should modify `webpack.config.js`.
-The training materials for the
-[js-build-pipelines-training](https://github.com/jenofdoom/js-build-pipelines-training#webpack)
-course may be helpful in this regard, or refer to the [webpack
-documentation](https://webpack.js.org/). Don't forget you need to restart the
-dev server process whenever you alter the build configuration.
+Project also uses storybook to present components in isolation.
+
+To run storybook project use:
+
+```
+npm run storybook
+```
+
+To learn more about storybook go to [https://storybook.js.org/](https://storybook.js.org/)

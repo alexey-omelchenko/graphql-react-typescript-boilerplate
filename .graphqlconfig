@@ -1,0 +1,12 @@
+{
+  "projects": {
+    "graphql-react-boilerplate": {
+      "schemaPath": "./src/graphql/schema.graphql",
+      "extensions": {
+        "endpoints": {
+          "dev": ""
+        }
+      }
+    }
+  }
+}

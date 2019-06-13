@@ -1,0 +1,27 @@
+# source: https://48p1r2roz4.sse.codesandbox.io
+# timestamp: Thu Jun 27 2019 12:01:08 GMT+1200 (New Zealand Standard Time)
+
+directive @cacheControl(
+  maxAge: Int
+  scope: CacheControlScope
+) on FIELD_DEFINITION | OBJECT | INTERFACE
+
+enum CacheControlScope {
+  PUBLIC
+  PRIVATE
+}
+
+type Activity {
+  name: String
+  status: String
+}
+
+type Query {
+  activities: [Activity]
+}
+
+"""
+The `Upload` scalar type represents a file upload promise that resolves an
+object containing `stream`, `filename`, `mimetype` and `encoding`.
+"""
+scalar Upload
