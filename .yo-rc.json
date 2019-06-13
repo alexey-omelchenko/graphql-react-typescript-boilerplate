@@ -1,0 +1,13 @@
+{
+  "catalyst-frontend": {
+    "name": "forever-ever-never-note",
+    "newFolder": true,
+    "buildType": "webpack",
+    "react": true,
+    "jest": true,
+    "bootstrap": false,
+    "src": "src",
+    "dist": "dist",
+    "ignoreNewFolderSettings": true
+  }
+}

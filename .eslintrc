@@ -1,0 +1,22 @@
+{
+  "globals": {
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "react-app"],
+  "settings": {
+    "react": {
+      "version": "16.5"
+    }
+  },
+  "rules": {
+    "react/no-unescaped-entities": "off",
+    "react/display-name": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      }
+    }
+  ]
+}
